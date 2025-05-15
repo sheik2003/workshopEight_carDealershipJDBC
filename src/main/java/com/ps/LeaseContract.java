@@ -6,14 +6,15 @@ public class LeaseContract extends Contract {
     private double monthlyPayment;
 
     public LeaseContract(String date, String customerName, String email, Vehicle vehicleSold, double totalPrice, double monthlyPayment, double expectedEndingValue, double leaseFee) {
-        super(date, customerName, email, vehicleSold, totalPrice, monthlyPayment);
+        super(date, customerName, email, vehicleSold, 0, 0);
         this.expectedEndingValue = expectedEndingValue;
         this.leaseFee = leaseFee;
         this.monthlyPayment = monthlyPayment;
     }
 
     public double getExpectedEndingValue() {
-        return expectedEndingValue;
+        double vehiclePrice = 0.5 * (getVehicleSold().getPrice());
+            return vehiclePrice;
     }
 
     public void setExpectedEndingValue(double expectedEndingValue) {
@@ -21,7 +22,8 @@ public class LeaseContract extends Contract {
     }
 
     public double getLeaseFee() {
-        return leaseFee;
+        double vehiclePrice = getVehicleSold().getPrice();
+        return vehiclePrice * .07;
     }
 
     public void setLeaseFee(double leaseFee) {
@@ -35,11 +37,23 @@ public class LeaseContract extends Contract {
 
     @Override
     public double getTotalPrice() {
-        return 0;
+//price of vehciel + total amoutn they apy
+        double vehiclePrice = getVehicleSold().getPrice();
+
+        return (vehiclePrice - expectedEndingValue) + leaseFee;
+
     }
 
     @Override
     public double getMonthlyPayment() {
-        return 0;
+        double totalPrice = getTotalPrice();
+        double rate = 0.04/12;
+        int term =  36;
+
+        return  totalPrice * (rate * Math.pow(1+rate, term)) / (Math.pow(1+rate,term)-1);
+
     }
 }
+//toal cost /2
+//1st half ask customer to pay that up front
+//2nd half is fiananced

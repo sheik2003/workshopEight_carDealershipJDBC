@@ -51,6 +51,7 @@ public class SalesContract extends Contract{
     }
 
     public boolean isFinanced() {
+
         return isFinanced;
     }
 
