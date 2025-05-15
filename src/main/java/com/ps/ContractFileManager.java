@@ -5,6 +5,108 @@ import java.util.ArrayList;
 
 public class ContractFileManager {
 
+    public static Contract saveContract(Contract contract){
+
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("contract.csv",true));
+
+            if (contract instanceof  SalesContract){
+                String contractType = "SALE";
+                String isFinacedYesNo;
+                if (((SalesContract) contract).isFinanced()) {
+                    isFinacedYesNo = "YES";
+                } else {
+                    isFinacedYesNo = "NO";
+                }
+                String contractLine = String.format(
+                        "%s|%s|%s|%s|%d|%d|\n\t%s|%s|%s|%s|%d|%.2f|\n\t%.2f|%.2f|%.2f|%.2f|%s|%.2f",
+                        contractType,                 //  1 %s
+                        contract.getDate(),           //  2 %s
+                        contract.getCustomerName(),   //  3 %s
+                        contract.getEmail(),          //  4 %s
+                        contract.getVehicleSold().getVin(),        // 5 %d
+                        contract.getVehicleSold().getYear(),       // 6 %d
+                        contract.getVehicleSold().getMake(),       // 7 %s
+                        contract.getVehicleSold().getModel(),      // 8 %s
+                        contract.getVehicleSold().getVehicleType(),// 9 %s
+                        contract.getVehicleSold().getColor(),      //10 %s
+                        contract.getVehicleSold().getOdometer(),   //11 %d
+                        contract.getVehicleSold().getPrice(),      //12 %.2f
+                        ((SalesContract) contract).getSalesTaxAmount(),   //13 %.2f
+                        ((SalesContract) contract).getRecordingFee(),     //14 %.2f
+                        ((SalesContract) contract).getProcessingFee(),    //15 %.2f
+                        contract.getTotalPrice(),                //16 **%.2f**  ← added
+                        isFinacedYesNo,                          //17 %s
+                        contract.getMonthlyPayment()             //18 %.2f
+                );
+
+                bufferedWriter.write(contractLine);
+                bufferedWriter.newLine();
+                bufferedWriter.close();
+
+            }else if (contract instanceof LeaseContract){
+
+                String contractType = "LEASE";
+
+                String contractLine = String.format(
+                        "%s|%s|%s|%s|%d|%d|\n\t%s|%s|%s|%s|%d|%.2f|\n\t%.2f|%.2f|%.2f|%.2f",
+
+                        contractType,
+                        contract.getDate(),
+                        contract.getCustomerName(),
+                        contract.getEmail(),
+                        contract.getVehicleSold().getVin(),
+                        contract.getVehicleSold().getYear(),
+
+                        contract.getVehicleSold().getMake(),
+                        contract.getVehicleSold().getModel(),
+                        contract.getVehicleSold().getVehicleType(),
+                        contract.getVehicleSold().getColor(),
+                        contract.getVehicleSold().getOdometer(),
+                        contract.getVehicleSold().getPrice(),
+
+                        ((LeaseContract) contract).getExpectedEndingValue(),
+                        ((LeaseContract) contract).getLeaseFee(),
+                        contract.getTotalPrice(),
+                        contract.getMonthlyPayment()
+                );
+
+
+                bufferedWriter.write(contractLine);
+                bufferedWriter.newLine();
+                bufferedWriter.close();
+
+            }else{
+                System.out.println("error");
+            }
+
+
+
+
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        return contract;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

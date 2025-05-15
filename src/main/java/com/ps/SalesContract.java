@@ -12,6 +12,12 @@ public class SalesContract extends Contract{
     public SalesContract(String date, String customerName, String email, Vehicle vehicleSold, boolean isFinanced) {
         super(date, customerName, email, vehicleSold, 0.0, 0.0);
         this.isFinanced = isFinanced;
+        this.salesTaxAmount = getSalesTaxAmount();
+        this.recordingFee = getRecordingFee();
+        this.processingFee = getProcessingFee();
+        this.monthlyPayment = getMonthlyPayment();
+
+
     }
 
 
