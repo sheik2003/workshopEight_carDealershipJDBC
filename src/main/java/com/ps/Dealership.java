@@ -31,6 +31,7 @@ public class Dealership {
         return filteredByPriceVehicles ;
     }
 
+
     public ArrayList<Vehicle> vehiclesByMakeModel(String make, String model){
 
         ArrayList<Vehicle> filteredVehiclesByModel = new ArrayList<>();
@@ -115,7 +116,24 @@ public class Dealership {
         }
 
     }
+    public  void displayVinHelper (){
+        System.out.println("---- Vehicle VINs ----");
+        for (Vehicle vehicle : inventory ){
+            System.out.println("vin: " + vehicle.getVin());
+        }
+    }
 
+    public Vehicle findVehicleByVinHelper(int vin) {
+        Vehicle foundVehicle = null;
+        for (int i = 0; i < inventory.size(); i++) {
+            if (inventory.get(i).getVin() == vin) {
+                return foundVehicle = inventory.get(i);
+
+            }
+        }
+        return null;
+
+    }
 
     public String getName() {
         return name;

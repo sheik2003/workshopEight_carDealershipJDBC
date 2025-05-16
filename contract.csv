@@ -1,6 +1,12 @@
-SALE|20240515|John Doe|john@example.com|44901|2012|
-	Honda|Civic|SUV|Gray|103221|6995.00|
-	349.75|100.00|295.00|7739.75|YES|340.42
-LEASE|20210928|Zachary Westly|zach@texas.com|37846|2021|
-	Chevrolet|Silverado|truck|Black|2750|31995.00|
-	15997.50|2239.65|31995.00|944.62
+LEASE|20250515|Sheik Siphat|notsheiksiphat2003@gmail.com|10112|1993|
+	Ford|Explorer|SUV|Red|525123|995.00|
+	497.50|69.65|995.00|29.38
+LEASE|20250512|sheik siphat|sheik@gmail.com|37846|2001|
+	Ford|Ranger|truck|Yellow|172544|1995.00|
+	997.50|139.65|1995.00|58.90
+LEASE|20200419|sheik|shsdf@gmail.com|10112|1993|
+	Ford|Explorer|SUV|Red|525123|995.00|
+	497.50|69.65|995.00|29.38
+LEASE|20250519|sheik|sheik212@gmail.com|37846|2001|
+	Ford|Ranger|truck|Yellow|172544|1995.00|
+	997.50|139.65|1995.00|58.90

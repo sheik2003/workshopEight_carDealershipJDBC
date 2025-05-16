@@ -12,12 +12,15 @@ public class ContractFileManager {
 
             if (contract instanceof  SalesContract){
                 String contractType = "SALE";
+
                 String isFinacedYesNo;
                 if (((SalesContract) contract).isFinanced()) {
                     isFinacedYesNo = "YES";
                 } else {
                     isFinacedYesNo = "NO";
                 }
+
+
                 String contractLine = String.format(
                         "%s|%s|%s|%s|%d|%d|\n\t%s|%s|%s|%s|%d|%.2f|\n\t%.2f|%.2f|%.2f|%.2f|%s|%.2f",
                         contractType,                 //  1 %s
@@ -34,10 +37,10 @@ public class ContractFileManager {
                         contract.getVehicleSold().getPrice(),      //12 %.2f
                         ((SalesContract) contract).getSalesTaxAmount(),   //13 %.2f
                         ((SalesContract) contract).getRecordingFee(),     //14 %.2f
-                        ((SalesContract) contract).getProcessingFee(),    //15 %.2f
-                        contract.getTotalPrice(),                //16 **%.2f**  ← added
-                        isFinacedYesNo,                          //17 %s
-                        contract.getMonthlyPayment()             //18 %.2f
+                        ((SalesContract) contract).getProcessingFee(),
+                        contract.getTotalPrice(),
+                        isFinacedYesNo,
+                        contract.getMonthlyPayment()
                 );
 
                 bufferedWriter.write(contractLine);

@@ -33,6 +33,10 @@ public class UserInterface {
             System.out.println("7. Get all");
             System.out.println("8. Add vehicle");
             System.out.println("9. Remove vehicle");
+            System.out.println("10. Sales contract");
+            System.out.println("11. Lease contract");
+
+
             System.out.println("0. Exit");
 
             System.out.print("Command: ");
@@ -71,6 +75,12 @@ public class UserInterface {
                 case 9:
                     processRemoveVehicleRequest();
                     break;
+                case 10:
+                    processSalesContractRequest();
+                    break;
+                case 11:
+                    processLeaseContractRequest();
+                    break;
                 case 0:
                     System.out.println("Exiting...");
                     break;
@@ -78,6 +88,49 @@ public class UserInterface {
                     System.out.println("Command not found, try again");
             }
         } while (mainMenuCommand != 0);
+    }
+
+    private void processLeaseContractRequest() {
+        System.out.println("--------Lease Contract--------");
+
+        System.out.println("\n");
+        scanner.nextLine();
+        System.out.println(" Enter Date |format YYYYMMDD");
+        String date = scanner.nextLine();
+
+        System.out.println("Customer Name: ");
+        String customerName =scanner.nextLine();
+
+        System.out.println("Email: ");
+        String email = scanner.nextLine();
+
+        dealership.displayVinHelper();
+        System.out.println("Enter the Vin lease was sold under: ");
+        int vin = scanner.nextInt();
+        scanner.nextLine();
+
+        Vehicle vehicleSold = dealership.findVehicleByVinHelper(vin);
+
+        if (vehicleSold == null) {
+            System.out.println("Vehicle with that VIN was not found.");
+            return;
+        }
+
+        LeaseContract leaseContract = new LeaseContract(date,customerName,email,vehicleSold);
+        ContractFileManager.saveContract(leaseContract);
+        System.out.println("Lease contract saved.");
+
+
+        dealership.removeVehicle(vin);
+        DealershipFileManager.saveDealership(dealership);
+        System.out.println("Vehicle removed from dealerShip");
+    }
+
+    private void processSalesContractRequest() {
+        System.out.println("--------Sales Contract--------");
+
+
+
     }
 
 
