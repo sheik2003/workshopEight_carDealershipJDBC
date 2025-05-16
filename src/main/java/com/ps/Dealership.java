@@ -103,7 +103,6 @@ public class Dealership {
 }
     public void addVehicle(Vehicle vehicle){
         inventory.add(vehicle);
-        System.out.println("Added successfully");
     }
 
     public void removeVehicle(int vin){
