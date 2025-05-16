@@ -129,7 +129,47 @@ public class UserInterface {
     private void processSalesContractRequest() {
         System.out.println("--------Sales Contract--------");
 
+        System.out.println("\n");
+        scanner.nextLine();
+        System.out.println(" Enter Date |format YYYYMMDD");
+        String date = scanner.nextLine();
 
+        System.out.println("Customer Name: ");
+        String customerName =scanner.nextLine();
+
+        System.out.println("Email: ");
+        String email = scanner.nextLine();
+
+        dealership.displayVinHelper();
+        System.out.println("Enter the Vin lease was sold under: ");
+        int vin = scanner.nextInt();
+        scanner.nextLine();
+
+        Vehicle vehicleSold = dealership.findVehicleByVinHelper(vin);
+
+        if (vehicleSold == null) {
+            System.out.println("Vehicle with that VIN was not found.");
+            return;
+        }
+
+        boolean isFinanced = false;
+        System.out.println("Is vehicle financed (Yes | no) ? ");
+        String isFinacedUserInput = scanner.nextLine();
+        if (isFinacedUserInput.equalsIgnoreCase("yes")){
+             isFinanced = true;
+        }else if(isFinacedUserInput.equalsIgnoreCase("no")) {
+            isFinanced = false;
+        }
+
+
+        SalesContract salesContract = new SalesContract(date,customerName,email,vehicleSold,isFinanced);
+        ContractFileManager.saveContract(salesContract);
+        System.out.println("Sales contract saved.");
+
+
+        dealership.removeVehicle(vin);
+        DealershipFileManager.saveDealership(dealership);
+        System.out.println("Vehicle removed from dealerShip");
 
     }
 
