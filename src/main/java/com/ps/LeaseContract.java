@@ -41,7 +41,7 @@ public class LeaseContract extends Contract {
         double vehiclePrice = getVehicleSold().getPrice();
 
         return (vehiclePrice - expectedEndingValue) + leaseFee;
-
+dfs
     }
 
     @Override
