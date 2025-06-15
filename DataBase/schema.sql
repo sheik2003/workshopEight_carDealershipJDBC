@@ -16,16 +16,18 @@ CREATE TABLE `dealerships` (
 
 
 ##Table 2
-CREATE TABLE `vehicles`	(
-`VIN` INT NOT NULL AUTO_INCREMENT,
-`make` VARCHAR(25) NOT NULL,
-`model` VARCHAR(25) NOT NULL,
-`mileage` INT NOT NULL,
-`year` INT(4) NOT NULL,
-`Price` DECIMAL(12,2) NOT NULL,
-`SOLD` BOOLEAN DEFAULT FALSE,
-PRIMARY KEY (VIN)
+CREATE TABLE `vehicles` (
+  `VIN` INT NOT NULL AUTO_INCREMENT,
+  `make` VARCHAR(25) NOT NULL,
+  `model` VARCHAR(25) NOT NULL,
+  `mileage` INT NOT NULL,
+  `year` INT(4) NOT NULL,
+  `Price` DECIMAL(12,2) NOT NULL,
+  `SOLD` BOOLEAN DEFAULT FALSE,
+  `color` VARCHAR(20), 
+  PRIMARY KEY (VIN)
 );
+
 
 ##Table 3
 CREATE TABLE inventory (
@@ -54,17 +56,17 @@ INSERT INTO dealerships (catergory_name, address, phone) VALUES
 ('Electric', '555 Greenpoint Ave, Brooklyn, NY', '7185554455');
 
 -- VEHICLES
-INSERT INTO vehicles (make, model, mileage, year, Price, SOLD) VALUES
-('Toyota', 'Camry', 28000, 2021, 22000.00, FALSE),         -- VIN 1
-('Honda', 'Civic', 15000, 2022, 21000.00, TRUE),           -- VIN 2
-('Ford', 'Explorer', 42000, 2020, 27500.00, FALSE),        -- VIN 3
-('BMW', 'X5', 18000, 2023, 58000.00, TRUE),                -- VIN 4
-('Tesla', 'Model 3', 12000, 2023, 48000.00, FALSE),        -- VIN 5
-('Chevrolet', 'Silverado', 65000, 2019, 31000.00, FALSE),  -- VIN 6
-('Nissan', 'Altima', 36000, 2021, 19500.00, TRUE),         -- VIN 7
-('Jeep', 'Wrangler', 22000, 2022, 35000.00, FALSE),        -- VIN 8
-('Audi', 'A6', 25000, 2021, 42000.00, TRUE),               -- VIN 9
-('Hyundai', 'Elantra', 18000, 2023, 20500.00, FALSE);      -- VIN 10
+INSERT INTO vehicles (make, model, mileage, year, Price, SOLD, color) VALUES
+('Toyota', 'Camry', 28000, 2021, 22000.00, FALSE, 'White'),       
+('Honda', 'Civic', 15000, 2022, 21000.00, TRUE, 'Black'),         
+('Ford', 'Explorer', 42000, 2020, 27500.00, FALSE, 'Blue'),       
+('BMW', 'X5', 18000, 2023, 58000.00, TRUE, 'Gray'),               
+('Tesla', 'Model 3', 12000, 2023, 48000.00, FALSE, 'Red'),        
+('Chevrolet', 'Silverado', 65000, 2019, 31000.00, FALSE, 'Silver'),
+('Nissan', 'Altima', 36000, 2021, 19500.00, TRUE, 'White'),       
+('Jeep', 'Wrangler', 22000, 2022, 35000.00, FALSE, 'Green'),      
+('Audi', 'A6', 25000, 2021, 42000.00, TRUE, 'Black'),             
+('Hyundai', 'Elantra', 18000, 2023, 20500.00, FALSE, 'Blue');
 
 -- INVENTORY (map dealership IDs to vehicle VINs as strings)
 INSERT INTO inventory (dealership_id, VIN) VALUES
