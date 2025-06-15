@@ -1,10 +1,7 @@
 # ---------------------------------------------------------------------- #
-DROP DATABASE IF EXISTS car_dealership_ws8;
+DROP DATABASE IF EXISTS car_dealership;
 
-CREATE DATABASE car_dealership_ws8;
-
-USE car_dealership_ws8;
-
+CREATE DATABASE car_dealership;
 
 USE car_dealership;
 
