@@ -16,6 +16,12 @@ public class Dealership {
         this.inventory = new ArrayList<>();
     }
 
+    public Dealership() {
+    }
+
+    public Dealership(int dealershipId, String name, String address, String phone) {
+    }
+
     public ArrayList<Vehicle> vehiclesByPrice(double min, double max){
 
     ArrayList<Vehicle> filteredByPriceVehicles = new ArrayList<>();
@@ -156,5 +162,11 @@ public class Dealership {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public void setDealershipId(int anInt) {
+    }
+
+    public int getDealershipId() {
     }
 }
