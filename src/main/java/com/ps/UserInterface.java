@@ -1,7 +1,5 @@
 package com.ps;
 
-import javax.sound.midi.Soundbank;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -320,7 +318,7 @@ public class UserInterface {
         }
 
 
-        Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
+        Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price, resultSet.getBoolean("sold"));
         dealership.addVehicle(vehicle);
         DealershipFileManager.saveDealership(dealership);
         System.out.println("Vehicle added and saved.");

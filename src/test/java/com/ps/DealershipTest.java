@@ -3,7 +3,6 @@ package com.ps;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,9 +13,9 @@ class DealershipTest {
 
     //Arrange
     Dealership dealership =new Dealership("Test Dealer", "123 Road", "555-5555");
-    dealership.addVehicle(new Vehicle(1001, 2020, "Toyota", "Camry", "Sedan", "Black", 45000, 15000.00));
-    dealership.addVehicle(new Vehicle(1002, 2018, "Honda", "Civic", "Sedan", "White", 60000, 12000.00));
-    dealership.addVehicle(new Vehicle(1003, 2022, "Ford", "Explorer", "SUV", "Red", 20000, 28000.00));
+    dealership.addVehicle(new Vehicle(1001, 2020, "Toyota", "Camry", "Sedan", "Black", 45000, 15000.00, resultSet.getBoolean("sold")));
+    dealership.addVehicle(new Vehicle(1002, 2018, "Honda", "Civic", "Sedan", "White", 60000, 12000.00, resultSet.getBoolean("sold")));
+    dealership.addVehicle(new Vehicle(1003, 2022, "Ford", "Explorer", "SUV", "Red", 20000, 28000.00, resultSet.getBoolean("sold")));
 
 
     //Act
@@ -41,9 +40,9 @@ class DealershipTest {
 
         //Arrange
         Dealership dealership =new Dealership("Test Dealer", "123 Road", "555-5555");
-        dealership.addVehicle(new Vehicle(1001, 2020, "Toyota", "Camry", "Sedan", "Black", 45000, 15000.00));
-        dealership.addVehicle(new Vehicle(1002, 2018, "Honda", "Civic", "Sedan", "White", 60000, 12000.00));
-        dealership.addVehicle(new Vehicle(1003, 2022, "Ford", "Explorer", "SUV", "Red", 20000, 28000.00));
+        dealership.addVehicle(new Vehicle(1001, 2020, "Toyota", "Camry", "Sedan", "Black", 45000, 15000.00, resultSet.getBoolean("sold")));
+        dealership.addVehicle(new Vehicle(1002, 2018, "Honda", "Civic", "Sedan", "White", 60000, 12000.00, resultSet.getBoolean("sold")));
+        dealership.addVehicle(new Vehicle(1003, 2022, "Ford", "Explorer", "SUV", "Red", 20000, 28000.00, resultSet.getBoolean("sold")));
 
 
         //Act
@@ -63,9 +62,9 @@ class DealershipTest {
 
         // Arrange
         Dealership dealership = new Dealership("Test Dealer", "123 Road", "555-5555");
-        dealership.addVehicle(new Vehicle(1001, 2020, "Toyota", "Camry", "Sedan", "Black", 45000, 15000.00));
-        dealership.addVehicle(new Vehicle(1002, 2018, "Honda", "Civic", "Sedan", "White", 60000, 12000.00));
-        dealership.addVehicle(new Vehicle(1003, 2022, "Ford", "Explorer", "SUV", "Red", 20000, 28000.00));
+        dealership.addVehicle(new Vehicle(1001, 2020, "Toyota", "Camry", "Sedan", "Black", 45000, 15000.00, resultSet.getBoolean("sold")));
+        dealership.addVehicle(new Vehicle(1002, 2018, "Honda", "Civic", "Sedan", "White", 60000, 12000.00, resultSet.getBoolean("sold")));
+        dealership.addVehicle(new Vehicle(1003, 2022, "Ford", "Explorer", "SUV", "Red", 20000, 28000.00, resultSet.getBoolean("sold")));
 
         // Act
         ArrayList<Vehicle> results = dealership.vehiclesByYear(2018, 2020);
@@ -86,9 +85,9 @@ class DealershipTest {
 
         // Arrange
         Dealership dealership = new Dealership("Test Dealer", "123 Road", "555-5555");
-        dealership.addVehicle(new Vehicle(1001, 2020, "Toyota", "Camry", "Sedan", "Black", 45000, 15000.00));
-        dealership.addVehicle(new Vehicle(1002, 2018, "Honda", "Civic", "Sedan", "White", 60000, 12000.00));
-        dealership.addVehicle(new Vehicle(1003, 2022, "Ford", "Explorer", "SUV", "Red", 20000, 28000.00));
+        dealership.addVehicle(new Vehicle(1001, 2020, "Toyota", "Camry", "Sedan", "Black", 45000, 15000.00, resultSet.getBoolean("sold")));
+        dealership.addVehicle(new Vehicle(1002, 2018, "Honda", "Civic", "Sedan", "White", 60000, 12000.00, resultSet.getBoolean("sold")));
+        dealership.addVehicle(new Vehicle(1003, 2022, "Ford", "Explorer", "SUV", "Red", 20000, 28000.00, resultSet.getBoolean("sold")));
 
         // Act
         ArrayList<Vehicle> results = dealership.vehiclesByColor("Red");
@@ -105,9 +104,9 @@ class DealershipTest {
 
         // Arrange
         Dealership dealership = new Dealership("Test Dealer", "123 Road", "555-5555");
-        dealership.addVehicle(new Vehicle(1001, 2020, "Toyota", "Camry", "Sedan", "Black", 45000, 15000.00));
-        dealership.addVehicle(new Vehicle(1002, 2018, "Honda", "Civic", "Sedan", "White", 60000, 12000.00));
-        dealership.addVehicle(new Vehicle(1003, 2022, "Ford", "Explorer", "SUV", "Red", 20000, 28000.00));
+        dealership.addVehicle(new Vehicle(1001, 2020, "Toyota", "Camry", "Sedan", "Black", 45000, 15000.00, resultSet.getBoolean("sold")));
+        dealership.addVehicle(new Vehicle(1002, 2018, "Honda", "Civic", "Sedan", "White", 60000, 12000.00, resultSet.getBoolean("sold")));
+        dealership.addVehicle(new Vehicle(1003, 2022, "Ford", "Explorer", "SUV", "Red", 20000, 28000.00, resultSet.getBoolean("sold")));
 
         // Act
         ArrayList<Vehicle> results = dealership.vehiclesByMilage(0, 50000);

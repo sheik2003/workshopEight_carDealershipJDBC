@@ -1,5 +1,6 @@
 package com.ps;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 public class SalesContract extends Contract{
@@ -19,6 +20,7 @@ public class SalesContract extends Contract{
 
 
     }
+
 
 
     public double getSalesTaxAmount() {
